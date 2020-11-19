@@ -1,0 +1,18 @@
+<p>Здесь булочки!</p>
+<table border="1" style="text-align: left">
+  <thead>
+    <tr>
+      <th>Тип</th>
+      <th>Цена</th>
+      <th>Контрольный срок(часы)</th>
+      <th>Время на продажу(часы)</th>
+      <th>Будущая цена</th>
+      <th>Цена изменится через:</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let bun of Buns; let i = index">
+    <tr *ngIf="bun.type !== 'Сметанник' && bun.type !== 'Крендель'"><td>{{bun.type}}</td><td>{{bun.price}}</td><td>{{bun.freshTime}}ч</td><td>{{bun.sellTime}}ч</td><td>{{bun.price*0.98}}</td><td>1ч</td></tr>
+    <tr *ngIf="bun.type === 'Крендель'"><td>{{bun.type}}</td><td>{{bun.price}}</td><td>{{bun.freshTime}}ч</td><td>{{bun.sellTime}}ч</td><td>{{bun.price*0.5}}</td><td>{{bun.freshTime}}ч</td></tr>
+    <tr *ngIf="bun.type === 'Сметанник'"><td>{{bun.type}}</td><td>{{bun.price}}</td><td>{{bun.freshTime}}ч</td><td>{{bun.sellTime}}ч</td><td>{{bun.price*0.96}}</td><td>1ч</td></tr>
+  </tbody>
+</table>
